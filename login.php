@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+require_once('config/koneksi.php');
 session_start();
 
 $err = '';
@@ -30,24 +30,17 @@ if (isset($_POST['login'])) {
                 $_SESSION['session_username'] = $username;
                 $_SESSION['session_password'] = md5($password);
 
-                header("Location: utama.php");
+                header("Location: landingPage.php");
                 exit();
             }
         }
     }
 }
+
+require_once('path/app.php')
+
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <title>Login</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-</head>
 <body id="main-body" class="bg-gradient-to-l from-[#3a59d1] to-[#3d90d7] min-h-screen flex items-center justify-center font-['Outfit'] opacity-100 transition-opacity duration-500">
 
 <?php if (!empty($_SESSION['error_login']) && $_SESSION['error_login'] === "Password salah" ): ?>
@@ -103,7 +96,7 @@ if (isset($_POST['login'])) {
             </div>
             <div class="mt-[25px] flex flex-col sm:flex-row sm:items-center">
                 <p class="mr-2">Belum punya akun?</p>
-                <a href="daftar.php" class="text-blue-600 underline">Daftar di sini</a>
+                <a href="register.php" class="text-blue-600 underline">Daftar di sini</a>
             </div>
       </form>
     </div>
@@ -111,7 +104,7 @@ if (isset($_POST['login'])) {
     <div class="h-[500px] w-full max-w-md lg:max-w-[500px] text-white items-center justify-center rounded-[25px] p-[20px] lg:mt-[300px] flex flex-col">
     <div class="flex-col mt-[50px] sm:mt-[80px] lg:mt-[0px] lg:block hidden text-left h-[500px] w-[500px] text-white items-center justify-center rounded-[25px] p-[20px] min-h-screen ">
         <div>
-            <img src="Peduli_Bersama.png" class="w-[100px] rounded-[25px]">
+            <img src="asset/Peduli_Bersama.png" class="w-[100px] rounded-[25px]">
         </div>
         <div>
             <h1 class="text-[40px] sm:text-[50px] font-bold font-['outfit'] drop-shadow-md p-[0px]">SELAMAT DATANG</h1>   

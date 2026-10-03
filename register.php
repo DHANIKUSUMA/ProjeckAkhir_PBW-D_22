@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+require_once('config/koneksi.php');
 
 $err = '';
 $sukses = '';
@@ -27,18 +27,10 @@ if (isset($_POST['daftar'])) {
         }
     }
 }
+
+require_once('path/app.php')
 ?>
 
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-    <meta charset="UTF-8">
-    <title>Registrasi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
-</head>
 <body id="main-body" class="bg-gradient-to-l from-[#3a59d1] to-[#3d90d7] min-h-screen flex items-center justify-center font-['Outfit'] opacity-100 transition-opacity duration-500">
 
 <?php if ($err): ?>
@@ -65,7 +57,7 @@ if (isset($_POST['daftar'])) {
         <div class="h-[500px] w-[500px] text-white items-center justify-center rounded-[25px] p-[20px] lg:block hidden min-h-screen lg:mt-[300px]">
             <div class="flex-col mt-[0px]">
                 <div>
-                    <img src="Peduli_Bersama.png" class="w-[100px] rounded-[25px]">
+                    <img src="asset/Peduli_Bersama.png" class="w-[100px] rounded-[25px]">
                 </div>
                 <div>
                     <h1 class="text-[40px] sm:text-[45px] md:text-[50px] font-bold font-['outfit'] drop-shadow-md p-[0px]">SELAMAT DATANG</h1>   

@@ -1,5 +1,6 @@
 <?php
-include 'koneksi.php';
+require_once('../config/koneksi.php');
+
 $err = '';
 $sukses = '';
 
@@ -14,7 +15,7 @@ if (isset($_POST['tambah'])) {
     $kecamatan = $_POST['kecamatan'] ?? '';
     $kisah = $_POST['kisah'] ?? '';
 
-    $direktori = "uploads/";
+    $direktori = "../asset/uploads/";
     $file_name = $_FILES['foto_gambar']['name'];
     $path = $direktori . $file_name;
 
@@ -51,23 +52,15 @@ if (isset($_POST['tambah'])) {
         }
     }
 }
+
+require_once('../path/app.php')
 ?>
 
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Campaign Sosial</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
 <body class="bg-gradient-to-l from-[#3a59d1] to-[#3d90d7] min-h-screen flex items-center justify-center font-['Plus Jakarta Sans']">
     <div class="bg-white w-[90%] sm:w-[600px] md:w-[700px] lg:w-[800px] xl:w-[900px] rounded-xl shadow-2xl p-6 sm:p-8 md:p-10 my-10">
         <h1 class="text-xl sm:text-2xl font-bold text-[#205781] mb-4 sm:mb-6 text-center">Tambah Campaign Donasi Sosial</h1>
         <div class="mb-4 sm:mb-6">
-            <a href="utama.php" class="text-sm text-blue-700 hover:underline">← Kembali</a>
+            <a href="../landingPage.php" class="text-sm text-blue-700 hover:underline">← Kembali</a>
         </div>
 
         <?php if ($err): ?>

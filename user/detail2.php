@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+require_once('../config/koneksi.php');
 
 $id = $_GET['id'] ?? ''; 
 
@@ -91,20 +91,9 @@ if (isset($_POST['input'])) {
     }
     }  
 }
+require_once('../path/app.php');
 
 ?>
-
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Donasi</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
 <?php if (!empty($_SESSION['error_form']) && $_SESSION['error_form'] === "kosong" ): ?>
     <div id="popup" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
         <div class="bg-white p-6 rounded-lg shadow-lg text-center w-[350px] sm:w-[300px] lg:w-[350px]">
@@ -141,7 +130,7 @@ if (isset($_POST['input'])) {
 <body class="bg-gradient-to-l from-[#3a59d1] to-[#3d90d7]">
     <div class="w-full max-w-[900px] mx-auto shadow-2xl pt-[50px] pb-[20px] rounded-xl bg-white px-4 sm:px-6 md:px-10">
         <div class="mb-[10px]">
-            <a href="utama.php">← Kembali</a>
+            <a href="../landingPage.php">← Kembali</a>
         </div>
         <div>
             <img src="<?= $data['foto_gambar'] ?>" class="w-full h-[300px] sm:h-[400px] md:h-[500px] lg:h-[600px] object-cover rounded-md">
@@ -159,7 +148,7 @@ if (isset($_POST['input'])) {
             <p class="text-sm sm:text-base">Sampai: <?= $data['batas_waktu'] ?></p>
         </div>
         <div>
-            <p>Terkumpul : <?= number_format($data['terkumpul'], 0, ',', '.') ?></p>
+            <p>Terkumpul : <?= $data['terkumpul']?></p>
         </div>
         <div>
             <p class="text-sm sm:text-base">Jumlah Donatur : <?= $data['donatur'] ?></p>
